@@ -3,46 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Phoenix Zen - coming soon</title>
+  <title>Phoenix Zen</title>
+
   <!-- Favicon -->
   <link rel="icon" href="https://raw.githubusercontent.com/maxrunacres/maxrunacres.github.io/main/Phoenix%20Zen%20mockup%20logo_trans_2.png" type="image/x-icon" />
 
   <style>
+    /* Animate background gradient */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #000; /* Page background */
-      color: #fff;
+      background: #000000; /* Keep the main background black */
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle noise texture */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+      opacity: 0.05;
+      z-index: 0;
     }
 
     .container {
+      position: relative;
+      z-index: 1;
       max-width: 600px;
       padding: 2rem;
-      background: #141414;
-      background-image: 
-        radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-position: 0 0, 5px 5px;
-      background-size: 10px 10px;
+      background: rgba(20, 20, 20, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      animation: gradientShift 20s ease infinite;
+      background: linear-gradient(-45deg, #8B0000, #141414, #8B0000, #1a1a1a); /* Updated red to #8B0000 */
+      background-size: 400% 400%; /* Set the gradient's animation */
     }
 
     h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
-      color: #fff;
     }
 
     p {
       font-size: 1.1rem;
       margin-bottom: 2rem;
-      color: #fff;
     }
 
     .btn {
@@ -53,6 +74,7 @@
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
+      transition: background-color 0.3s;
     }
 
     .btn:hover {
